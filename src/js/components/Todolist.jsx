@@ -5,11 +5,27 @@ export const Todolist = (props) => {
             onMouseOver={() => props.hovered(props.index)}
             onMouseOut={() => props.hovered(null)}
         >
-            {props.name}
+            <p className="my-auto">{props.name}</p>
             <div>
-                <i className={`fa-solid fa-circle-xmark py-0 px-2 text-danger ${props.hoveredIndex === props.index ? "" : ""}`}
-                    onClick={() => { props.delete(props.name) }}></i>
-                <i className={`fa-solid fa-circle-check py-0 px-2 text-danger ${props.hoveredIndex === props.index ? "" : ""}`}></i>
+                <button
+                    className={`${props.hoveredIndex === props.index ? "" : "d-none"} bnt border-0 mx-1`}
+                    onClick={() => { props.delete(props.name) }}
+                >
+                    <i
+                        className={`fa-solid fa-circle-xmark py-0 px-2 text-danger`}
+                    >
+                    </i>
+                </button>
+                <button
+                    className={`${props.hoveredIndex === props.index ? "" : "d-none"} bnt border-0 mx-1`}
+                    onClick={() => { props.complete(props.name)}}
+                >
+                    <i
+                        className={`fa-solid fa-circle-check py-0 px-2 text-danger`}
+                    >
+
+                    </i>
+                </button>
             </div>
         </li>
     );
